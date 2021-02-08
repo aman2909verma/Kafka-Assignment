@@ -38,8 +38,8 @@ public class Consumer {
                   for (ConsumerRecord<String, User> message : messages) {
                       ObjectMapper objectMapper = new ObjectMapper();
                       String jsonStr = objectMapper.writeValueAsString(message.value());
-                      FileWriter myWriter = new FileWriter("ReceivedObjects.txt");
-                      myWriter.write(jsonStr);
+                      FileWriter myWriter = new FileWriter("ReceivedObjects.txt",true);
+                      myWriter.write(jsonStr+"\n");
                       myWriter.close();
                   }
               }
